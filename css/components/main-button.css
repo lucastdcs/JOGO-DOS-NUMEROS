@@ -1,0 +1,20 @@
+.main-button {
+    padding: 0px 0px;
+    width: 700px;
+    height: 100px;
+    background-color: #6930C3;
+    margin-top: 100px;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 300;
+    font-size: 40px;
+    border: 3px solid #212121;
+    border-radius: 15px;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.3s;
+}
+
+.main-button:hover {
+    opacity: 0.95;
+    box-shadow: black 1px 1px 3px ;
+}
