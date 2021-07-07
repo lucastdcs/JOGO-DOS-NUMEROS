@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/components/grid.css">
 <link rel="stylesheet" href="css/components/reset.css">
 <link rel="stylesheet" href="css/components/main-section.css">
@@ -19,11 +20,12 @@
 <link rel="stylesheet" href="css/components/main-paragraph.css">
 <link rel="stylesheet" href="js/main-button.js">
 <link rel="stylesheet" href="css/components/main-footer.css">
+<link rel="stylesheet" href="css/components/main-input.css">
 
 <body>
     <header class="header">
         <div class="logo">lucas</div>
-        
+
         <h1 class="main-title">JOGO DOS NÚMEROS</h1>
 
         <div class="logo">tdcs</div>
@@ -31,8 +33,43 @@
 
     <section class="main-section">
 
-        <h2 class="main-paragraph">Memorize seu número!</h2>
+        <h2 class="main-paragraph" id="memorize">Memorize seu número!</h2>
+        <h2 class="main-paragraph" id="mediga">Diga se o número escolhido está presente em cada tabela:</h2>
+        <h2 class="main-paragraph -answer" id="answer"></h2>
 
+        <div class="wrapper-input" id="check">
+
+            <label class="container">Primeira
+                <input type="checkbox" id="check1">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="container">Segunda
+                <input type="checkbox" id="check2">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="container">Terceira
+                <input type="checkbox" id="check3">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="container">Quarta
+                <input type="checkbox" id="check4">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="container">Quinta
+                <input type="checkbox" id="check5">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="container">Sexta
+                <input type="checkbox" id="check6">
+                <span class="checkmark"></span>
+            </label>
+            
+        </div>
         <div class="wrapper-all">
             <div class="wrapper-grid">
                 <div class="box">1</div>
@@ -244,15 +281,18 @@
             </div>
         </div>
 
-        <button class="main-button -main-title" onclick="ask()">Pronto!</button>
 
+        <button class="main-button -main-title" onclick="hideNshow()" id="btn">Memorizei!</button>
+        <button class="main-button -main-title" onclick="ask()" id="btn2">Pronto!</button>
+
+       
         <script>
-
+            //função que adivinha
             function ask() {
 
-                var resposta = window.prompt('O número escolhido está presente no primeiro quadro? Sim, ou não?')
+                var resposta = document.getElementById("check1")
                 var valor = 0
-                if (resposta == "sim") {
+                if (resposta.checked) {
                     var conta = valor + 1
                 }
 
@@ -260,8 +300,8 @@
                     conta = valor + 0
                 }
 
-                var resposta2 = window.prompt('O número escolhido está presente no segundo quadro? Sim, ou não?')
-                if (resposta2 == "sim") {
+                var resposta2 = document.getElementById("check2")
+                if (resposta2.checked) {
                     var conta2 = conta + 2
                 }
 
@@ -270,10 +310,10 @@
                 }
 
 
-                var resposta3 = window.prompt('O número escolhido está presente no terceiro quadro? Sim, ou não?')
+                var resposta3 = document.getElementById("check3")
 
 
-                if (resposta3 == "sim") {
+                if (resposta3.checked) {
                     var conta3 = conta2 + 4
                 }
 
@@ -281,8 +321,8 @@
                     conta3 = conta2 + 0
                 }
 
-                var resposta4 =  window.prompt('O número escolhido está presente no quarto quadro? Sim, ou não?')
-                if (resposta4 == "sim") {
+                var resposta4 = document.getElementById("check4")
+                if (resposta4.checked) {
                     var conta4 = conta3 + 8
                 }
 
@@ -291,17 +331,17 @@
                 }
 
 
-                var resposta5 = window.prompt('O número escolhido está presente no quinto quadro? Sim, ou não?')
+                var resposta5 = document.getElementById("check5")
 
-                if (resposta5 == "sim") {
+                if (resposta5.checked) {
                     var conta5 = conta4 + 16
                 }
 
                 else {
                     conta5 = conta4 + 0
                 }
-                var resposta6 =  window.prompt('O número escolhido está presente no sexto quadro? Sim, ou não?')
-                if (resposta6 == "sim") {
+                var resposta6 = document.getElementById("check6")
+                if (resposta6.checked) {
                     var conta6 = conta5 + 32
                 }
 
@@ -309,12 +349,41 @@
                     conta6 = conta5 + 0
                 }
 
-                alert("Seu número é " + conta6)
+
+                document.getElementById("check").style.display = "none";
+                document.getElementById("mediga").style.display = "none";
+                document.getElementById("answer").style.display = "block";
+                document.getElementById("btn2").style.display = "none";
+                document.getElementById("answer").innerText = "O seu número é " + conta6 + "!!!";
+
+                window.scroll(0, 0)
+                
             }
         </script>
 
 
     </section>
+
+    <script>
+        //mostrar elementos escondidos
+        document.getElementById("memorize").style.display = "block";
+        document.getElementById("mediga").style.display = "none";
+        document.getElementById("check").style.display = "none";
+        document.getElementById("btn2").style.display = "none";
+        document.getElementById("answer").style.display = "none";
+
+        function hideNshow() {
+            document.getElementById("memorize").style.display = "none"
+            document.getElementById("mediga").style.display = "block";
+            document.getElementById("check").style.display = "block";
+            document.getElementById("btn").style.display = "none"
+            document.getElementById("btn2").style.display = "block";
+
+            window.scroll(0, 0)
+        }
+
+    </script>
+
 
     <footer class="main-footer">
         <h3>Lucas Teixeira</h3>
