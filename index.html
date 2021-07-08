@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="css/components/main-title.css">
 <link rel="stylesheet" href="css/components/main-button.css">
 <link rel="stylesheet" href="css/components/main-paragraph.css">
-<link rel="stylesheet" href="js/main-button.js">
+<link rel="stylesheet" href="js/calc-function.js">
 <link rel="stylesheet" href="css/components/main-footer.css">
 <link rel="stylesheet" href="css/components/main-input.css">
 
@@ -34,7 +34,7 @@
     <section class="main-section">
 
         <h2 class="main-paragraph" id="memorize">Memorize seu número!</h2>
-        <h2 class="main-paragraph" id="mediga">Diga se o número escolhido está presente em cada tabela:</h2>
+        <h2 class="main-paragraph" id="mediga">Diga se o número escolhido está presente nas respectivas tabelas:</h2>
         <h2 class="main-paragraph -answer" id="answer"></h2>
 
         <div class="wrapper-input" id="check">
@@ -68,7 +68,7 @@
                 <input type="checkbox" id="check6">
                 <span class="checkmark"></span>
             </label>
-            
+
         </div>
         <div class="wrapper-all">
             <div class="wrapper-grid">
@@ -284,9 +284,11 @@
 
         <button class="main-button -main-title" onclick="hideNshow()" id="btn">Memorizei!</button>
         <button class="main-button -main-title" onclick="ask()" id="btn2">Pronto!</button>
+        <button class="main-button -main-title" onclick="again()" id="btn3">Denovo!</button>
 
-       
+
         <script>
+
             //função que adivinha
             function ask() {
 
@@ -354,11 +356,15 @@
                 document.getElementById("mediga").style.display = "none";
                 document.getElementById("answer").style.display = "block";
                 document.getElementById("btn2").style.display = "none";
+                document.getElementById("btn3").style.display = "block";
                 document.getElementById("answer").innerText = "O seu número é " + conta6 + "!!!";
 
                 window.scroll(0, 0)
-                
+
             }
+
+
+
         </script>
 
 
@@ -371,6 +377,7 @@
         document.getElementById("check").style.display = "none";
         document.getElementById("btn2").style.display = "none";
         document.getElementById("answer").style.display = "none";
+        document.getElementById("btn3").style.display = "none";
 
         function hideNshow() {
             document.getElementById("memorize").style.display = "none"
@@ -382,11 +389,21 @@
             window.scroll(0, 0)
         }
 
+        function again(){
+            document.getElementById("answer").style.display = "none";
+            document.getElementById("btn3").style.display = "none";
+            document.getElementById("memorize").style.display = "block";
+            document.getElementById("btn").style.display = "block"
+
+            window.scroll(0, 0)
+
+        }
+
     </script>
 
 
+
     <footer class="main-footer">
-        <h3>Lucas Teixeira</h3>
     </footer>
 
 
